@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: header}">
+  <title>System Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1c2526 0%, #2d3839 100%);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      color: #e0e0e0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Container chính */
+    .content {
+      width: 90%;
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 30px;
+      background: rgba(40, 45, 46, 0.9);
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Tiêu đề chính */
+    h1 {
+      color: #00bcd4;
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Navigation */
+    nav {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      padding: 10px 20px;
+      color: #fff;
+      background: #00bcd4;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+
+    nav a:hover {
+      background: #0097a7;
+    }
+
+    /* Tiêu đề bảng */
+    h2 {
+      color: #b0bec5;
+      font-size: 24px;
+      margin: 30px 0 15px;
+      border-bottom: 2px solid #00bcd4;
+      padding-bottom: 5px;
+    }
+
+    /* Bảng */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(55, 65, 66, 0.3);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #444;
+    }
+
+    th {
+      background: #37474f;
+      color: #fff;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    td {
+      color: #cfd8dc;
+    }
+
+    tr:hover {
+      background: rgba(0, 188, 212, 0.1);
+    }
+
+    /* Nút hành động trong bảng */
+    td a {
+      padding: 6px 12px;
+      margin: 0 5px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    td a:first-child { /* Nút "Sửa" */
+      background: #4caf50;
+      color: #fff;
+    }
+
+    td a:first-child:hover {
+      background: #388e3c;
+    }
+
+    td a:last-child { /* Nút "Xóa" */
+      background: #f44336;
+      color: #fff;
+    }
+
+    td a:last-child:hover {
+      background: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+  <div th:include="header"></div>
+<div th:fragment="content" class="content">
+  <h1>Quản lý System</h1>
+  <nav>
+    <a href="/system/users/add">Thêm tài khoản</a>
+    <a href="/system/authorities/add">Thêm phân quyền</a>
+  </nav>
+
+  <h2>Danh sách tài khoản</h2>
+  <table>
+    <tr>
+      <th>Username</th>
+      <th>Password</th>
+      <th>Email</th>
+      <th>Hành động</th>
+    </tr>
+    <tr th:each="user : ${users}">
+      <td th:text="${user.username}"></td>
+      <td th:text="${user.password}"></td>
+      <td th:text="${user.email}"></td>
+      <td>
+        <a th:href="@{/system/users/edit/{username}(username=${user.username})}">Sửa</a>
+        <a th:href="@{/system/users/delete/{username}(username=${user.username})}" onclick="return confirm('Bạn có chắc muốn xóa?')">Xóa</a>
+      </td>
+    </tr>
+  </table>
+
+  <h2>Danh sách phân quyền</h2>
+  <table>
+    <tr>
+      <th>Username</th>
+      <th>Authority</th>
+      <th>Hành động</th>
+    </tr>
+    <tr th:each="auth : ${authorities}">
+      <td th:text="${auth.username}"></td>
+      <td th:text="${auth.authority}"></td>
+      <td>
+        <a th:href="@{/system/authorities/delete/{username}/{authority}(username=${auth.username},authority=${auth.authority})}" onclick="return confirm('Bạn có chắc muốn xóa?')">Xóa</a>
+      </td>
+    </tr>
+  </table>
+</div>
+<div th:replace="footer :: body"></div>
+</body>
+</html>

@@ -1,0 +1,381 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #121212;
+    color: #f5f5f5;
+    font-family: 'Michroma', sans-serif;
+}
+
+.main-container {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    color: #f5f5f5;
+    margin-bottom: 20px;
+}
+
+h1 i, h2 i {
+    margin-right: 10px;
+    color: #fdbb2d;
+}
+
+/* Table Styles */
+.table {
+    color: #f5f5f5;
+    background-color: #2c2c2c;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.table thead th {
+    background-color: #1e1e1e;
+    border-bottom: 2px solid #fdbb2d;
+    color: #fdbb2d;
+    font-weight: 600;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #3c3c3c;
+}
+
+.table tbody tr:hover {
+    background-color: #363636;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    background-color: #2c2c2c;
+    border: 1px solid #3c3c3c;
+    color: #f5f5f5;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.form-control:focus {
+    background-color: #363636;
+    border-color: #fdbb2d;
+    color: #f5f5f5;
+    box-shadow: 0 0 0 0.2rem rgba(253, 187, 45, 0.25);
+}
+
+label {
+    color: #f5f5f5;
+    margin-bottom: 8px;
+    display: block;
+}
+
+label i {
+    margin-right: 8px;
+    color: #fdbb2d;
+}
+
+/* Button Styles */
+.btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #fdbb2d;
+    color: #000000;
+}
+
+.btn-primary:hover {
+    background-color: #f5a800;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: #3c3c3c;
+    color: #f5f5f5;
+}
+
+.btn-secondary:hover {
+    background-color: #4c4c4c;
+    transform: translateY(-1px);
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+}
+
+/* Alert Styles */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: none;
+}
+
+.alert-success {
+    background-color: #28a745;
+    color: #ffffff;
+}
+
+.alert-danger {
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+/* Table Actions */
+.table-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.table-actions .btn {
+    padding: 4px 8px;
+    font-size: 0.9em;
+}
+
+/* Form Actions */
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Error Messages */
+.error {
+    color: #dc3545;
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-container {
+        padding: 10px;
+    }
+    
+    .table-responsive {
+        overflow-x: auto;
+    }
+    
+    .table {
+        min-width: 800px;
+    }
+    
+    .actions {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+}
+
+/* Header Styles */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: #000000;
+    color: #ffffff;
+    position: relative;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo-container {
+    flex: 1;
+}
+
+.logo-container img {
+    max-width: 73px;
+    height: auto;
+}
+
+.navigation-container {
+    flex: 2;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-left: 15px;
+}
+
+.contact-container {
+    flex: 1;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.navigation-container a {
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-transform: none;
+    margin: 0 15px;
+    padding: 0;
+    display: inline-block;
+    transition: color 0.3s ease;
+    font-family: 'Michroma', sans-serif;
+}
+
+.navigation-container a:hover {
+    color: #fdbb2d;
+}
+
+.contact-container a {
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 3px;
+    margin-left: 20px;
+    font-family: 'Michroma', sans-serif;
+}
+
+.shop-button {
+    display: inline-block;
+    background-color: #fdbb2d;
+    color: #000000;
+    padding: 8px 15px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-left: 15px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    font-family: 'Michroma', sans-serif;
+}
+
+.shop-button:hover {
+    background-color: #ffffff;
+}
+
+.user-login {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.user-login a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-family: 'Michroma', sans-serif;
+}
+
+.user-login a:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.user-profile {
+    display: none;
+}
+
+.logged-in .user-login {
+    display: none;
+}
+
+.logged-in .user-profile {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+.user-profile a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    margin-left: 10px;
+    font-family: 'Michroma', sans-serif;
+}
+
+.cart-icon {
+    margin-left: 15px;
+    position: relative;
+    font-size: 18px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #ff4d4d;
+    color: white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 18px;
+}
+
+.product-search {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 5px 15px;
+    margin-right: 20px;
+}
+
+.product-search input {
+    background-color: transparent;
+    border: none;
+    color: white;
+    outline: none;
+    width: 150px;
+    font-family: 'Michroma', sans-serif;
+    font-size: 12px;
+}
+
+.product-search input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.product-search button {
+    background-color: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.product-search button:hover {
+    color: #ffffff;
+} 

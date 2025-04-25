@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: header}">
+    <title>Thêm khách hàng</title>
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+<body>
+<div th:replace="~{/header :: body}"></div>
+<div th:replace="~{layout :: nav-bar}"></div>
+<div class="main-container">
+    <div class="card">
+        <h2 class="text-center">Thêm khách hàng mới</h2>
+
+        <form th:action="@{/admin/customers/add}" th:object="${customer}" method="post">
+            <!-- Tên -->
+            <div class="form-group">
+                <label class="form-label">Tên</label>
+                <input type="text" class="form-control" th:field="*{name}"
+                       th:classappend="${#fields.hasErrors('name')} ? 'is-invalid' : ''" required>
+                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="invalid-feedback"></span>
+            </div>
+
+            <!-- Địa chỉ -->
+            <div class="form-group">
+                <label class="form-label">Địa chỉ</label>
+                <input type="text" class="form-control" th:field="*{address}"
+                       th:classappend="${#fields.hasErrors('address')} ? 'is-invalid' : ''" required>
+                <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="invalid-feedback"></span>
+            </div>
+
+            <!-- Thành phố -->
+            <div class="form-group">
+                <label class="form-label">Thành phố</label>
+                <input type="text" class="form-control" th:field="*{city}"
+                       th:classappend="${#fields.hasErrors('city')} ? 'is-invalid' : ''" required>
+                <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}" class="invalid-feedback"></span>
+            </div>
+
+            <!-- Khu vực -->
+            <div class="form-group">
+                <label class="form-label">Khu vực</label>
+                <input type="text" class="form-control" th:field="*{region}"
+                       th:classappend="${#fields.hasErrors('region')} ? 'is-invalid' : ''" required>
+                <span th:if="${#fields.hasErrors('region')}" th:errors="*{region}" class="invalid-feedback"></span>
+            </div>
+
+            <!-- Mã bưu điện -->
+            <div class="form-group">
+                <label class="form-label">Mã bưu điện</label>
+                <input type="text" class="form-control" th:field="*{postalCode}"
+                       th:classappend="${#fields.hasErrors('postalCode')} ? 'is-invalid' : ''" required>
+                <span th:if="${#fields.hasErrors('postalCode')}" th:errors="*{postalCode}" class="invalid-feedback"></span>
+            </div>
+
+            <!-- Quốc gia -->
+            <div class="form-group">
+                <label class="form-label">Quốc gia</label>
+                <input type="text" class="form-control" th:field="*{country}"
+                       th:classappend="${#fields.hasErrors('country')} ? 'is-invalid' : ''" required>
+                <span th:if="${#fields.hasErrors('country')}" th:errors="*{country}" class="invalid-feedback"></span>
+            </div>
+
+            <!-- Nút hành động -->
+            <div class="actions">
+                <button type="submit" class="btn btn-primary">Thêm khách hàng</button>
+                <a href="/admin" class="btn btn-secondary">Quay lại</a>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

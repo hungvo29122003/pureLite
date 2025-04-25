@@ -1,0 +1,8 @@
+spring:
+  web:
+    resources:
+      static-locations: classpath:/static/, classpath:/public/, file:/c:/Users/DELL/Documents/bar/bar/src/main/resources/static/public/
+  mvc:
+    static-path-pattern: /**
+  thymeleaf:
+    cache: false

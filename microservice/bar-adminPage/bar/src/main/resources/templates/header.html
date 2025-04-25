@@ -1,0 +1,230 @@
+<!doctype html>
+<html>
+<head>
+    <title>Header</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Michroma', sans-serif;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background-color: #000000;
+            color: #ffffff;
+            position: relative;
+        }
+        
+        .logo-container {
+            flex: 1;
+        }
+        
+        .navigation-container {
+            flex: 2;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            margin-left: 15px;
+        }
+        
+        .contact-container {
+            flex: 1;
+            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        
+        .navigation-container a {
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: none;
+            margin: 0 15px;
+            padding: 0;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+        
+        .navigation-container a:hover {
+            color: #fdbb2d;
+        }
+        
+        .contact-container a {
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 3px;
+            margin-left: 20px;
+        }
+        
+        .shop-button {
+            display: inline-block;
+            background-color: #fdbb2d;
+            color: #000000;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-left: 15px;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .shop-button:hover {
+            background-color: #ffffff;
+        }
+        
+        .user-login {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        
+        .user-login a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+        
+        .user-login a:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .user-profile {
+            display: none;
+        }
+        
+        .logged-in .user-login {
+            display: none;
+        }
+        
+        .logged-in .user-profile {
+            display: block;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        
+        .user-profile a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+        
+        .cart-icon {
+            margin-left: 15px;
+            position: relative;
+            font-size: 18px;
+            color: #ffffff;
+            text-decoration: none;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #ff4d4d;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            text-align: center;
+            line-height: 18px;
+        }
+        
+        .product-search {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 5px 15px;
+            margin-right: 20px;
+        }
+        
+        .product-search input {
+            background-color: transparent;
+            border: none;
+            color: white;
+            outline: none;
+            width: 150px;
+            font-family: 'Michroma', sans-serif;
+            font-size: 12px;
+        }
+        
+        .product-search input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .product-search button {
+            background-color: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .product-search button:hover {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container" th:classappend="${#authentication != null && !#authentication.principal.equals('anonymousUser')} ? 'logged-in' : ''">
+        <div class="logo-container">
+            <img src="/images/logo.png" alt="Logo" width="73" height="74">
+        </div>
+        
+        <div class="navigation-container">
+            <a href="index.html">Home</a>
+            <a href="drinks.html">Drinks</a>
+            <a href="products.html">Shop</a>
+            <a href="about.html">About</a>
+            <a href="deals.html">Deals</a>
+            <a sec:authorize="hasRole('ROLE_ADMIN')" href="/admin">Admin</a>
+            <a sec:authorize="hasRole('ROLE_MANAGER')" href="/system">System</a>
+            <a href="admin/logout">Đăng xuất</a>
+        </div>
+        
+        <div class="contact-container">
+            <div class="product-search">
+                <input type="text" placeholder="Search products...">
+                <button>🔍</button>
+            </div>
+            
+            <a href="cart.html" class="cart-icon">
+                🛒 <span class="cart-count" th:text="${cartCount ?: 0}">0</span>
+            </a>
+            
+            <a href="store.html" class="shop-button">Store</a>
+            
+            <a href="contact.html">Contact</a>
+        </div>
+        
+        <!-- Login when logged out -->
+        <div class="user-login">
+            <a href="/login">Login</a>
+        </div>
+        
+        <!-- Profile and cart when logged in -->
+        <div class="user-profile">
+            <a href="orders.html">My Orders</a>
+            <a href="wishlist.html">Wishlist</a>
+            <a href="profile.html">Profile</a>
+            <a href="admin/logout">Logout</a>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,48 @@
+body {
+    background-color: black; /* Toàn bộ trang có nền đen */
+    color: white; /* Chữ mặc định là màu trắng */
+}
+.product-details {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #131212;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product-details h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.product-details p {
+    color: #666;
+    font-size: 16px;
+    margin: 8px 0;
+}
+
+.product-details img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.product-details button {
+    background-color: #ff5733;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.product-details button:hover {
+    background-color: #e64a19;
+}

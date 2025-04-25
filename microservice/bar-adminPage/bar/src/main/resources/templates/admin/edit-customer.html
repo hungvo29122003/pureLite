@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: header}">
+    <title>Sửa khách hàng</title>
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+<body>
+    <div th:replace="~{/header :: body}"></div>
+    <div th:replace="~{layout :: nav-bar}"></div>
+    
+    <div class="main-container">
+        <div class="card">
+            <h1><i class="fas fa-user-edit"></i> Sửa thông tin khách hàng</h1>
+            
+            <form th:action="@{/admin/customers/edit/{id}(id=${customer.id})}" th:object="${customer}" method="post">
+                <div class="form-group">
+                    <label for="name">
+                        <i class="fas fa-user"></i> Tên khách hàng:
+                    </label>
+                    <input type="text" id="name" th:field="*{name}" class="form-control" />
+                    <span th:errors="*{name}" class="error"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">
+                        <i class="fas fa-map-marker-alt"></i> Địa chỉ:
+                    </label>
+                    <input type="text" id="address" th:field="*{address}" class="form-control" />
+                    <span th:errors="*{address}" class="error"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="city">
+                        <i class="fas fa-city"></i> Thành phố:
+                    </label>
+                    <input type="text" id="city" th:field="*{city}" class="form-control" />
+                    <span th:errors="*{city}" class="error"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="region">
+                        <i class="fas fa-map"></i> Khu vực:
+                    </label>
+                    <input type="text" id="region" th:field="*{region}" class="form-control" />
+                    <span th:errors="*{region}" class="error"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="postalCode">
+                        <i class="fas fa-mail-bulk"></i> Mã bưu điện:
+                    </label>
+                    <input type="text" id="postalCode" th:field="*{postalCode}" class="form-control" />
+                    <span th:errors="*{postalCode}" class="error"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="country">
+                        <i class="fas fa-globe"></i> Quốc gia:
+                    </label>
+                    <input type="text" id="country" th:field="*{country}" class="form-control" />
+                    <span th:errors="*{country}" class="error"></span>
+                </div>
+                
+                <div class="actions">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Cập nhật
+                    </button>
+                    <a href="/admin" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Quay lại
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

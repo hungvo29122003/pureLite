@@ -1,0 +1,240 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 268435456 bytes. Error detail: G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   This process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3703), pid=16160, tid=22668
+#
+# JRE version:  (23.0.1+11) (build )
+# Java VM: OpenJDK 64-Bit Server VM (23.0.1+11-39, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dclassworlds.conf=C:\Users\DELL\.m2\wrapper\dists\apache-maven-3.9.9\977a63e90f436cd6ade95b4c0e10c20c\bin\m2.conf -Dmaven.home=C:\Users\DELL\.m2\wrapper\dists\apache-maven-3.9.9\977a63e90f436cd6ade95b4c0e10c20c -Dlibrary.jansi.path=C:\Users\DELL\.m2\wrapper\dists\apache-maven-3.9.9\977a63e90f436cd6ade95b4c0e10c20c\lib\jansi-native -Dmaven.multiModuleProjectDirectory=C:\Users\DELL\Documents\bar\bar org.codehaus.plexus.classworlds.launcher.Launcher -DskipTests=true -Dmaven.ext.class.path=C:\Users\DELL\.cursor\extensions\oracle.oracle-java-23.1.0\nbcode\java\maven-nblib\netbeans-eventspy.jar --no-transfer-progress --fail-at-end install
+
+Host: Intel(R) Core(TM) i5-6440HQ CPU @ 2.60GHz, 4 cores, 15G,  Windows 10 , 64 bit Build 19041 (10.0.19041.5198)
+Time: Wed Apr  2 00:13:33 2025 SE Asia Standard Time elapsed time: 0.033089 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000021799cdb7f0):  JavaThread "Unknown thread" [_thread_in_vm, id=22668, stack(0x0000002aee000000,0x0000002aee100000) (1024K)]
+
+Stack: [0x0000002aee000000,0x0000002aee100000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x6e08b9]  (no source info available)
+V  [jvm.dll+0x87dc83]  (no source info available)
+V  [jvm.dll+0x88010e]  (no source info available)
+V  [jvm.dll+0x8807e3]  (no source info available)
+V  [jvm.dll+0x27aee6]  (no source info available)
+V  [jvm.dll+0x6dd1c5]  (no source info available)
+V  [jvm.dll+0x6d104a]  (no source info available)
+V  [jvm.dll+0x35b3ea]  (no source info available)
+V  [jvm.dll+0x3637f6]  (no source info available)
+V  [jvm.dll+0x34fd5e]  (no source info available)
+V  [jvm.dll+0x34fff8]  (no source info available)
+V  [jvm.dll+0x3289cc]  (no source info available)
+V  [jvm.dll+0x32966e]  (no source info available)
+V  [jvm.dll+0x844355]  (no source info available)
+V  [jvm.dll+0x3b9848]  (no source info available)
+V  [jvm.dll+0x82d14c]  (no source info available)
+V  [jvm.dll+0x454d4e]  (no source info available)
+V  [jvm.dll+0x456bd1]  (no source info available)
+C  [jli.dll+0x52a3]  (no source info available)
+C  [ucrtbase.dll+0x21bb2]  (no source info available)
+C  [KERNEL32.DLL+0x17374]  (no source info available)
+C  [ntdll.dll+0x4cc91]  (no source info available)
+
+Lock stack of current Java thread (top to bottom):
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ffaa0bb3618, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+Total: 0
+
+Other Threads:
+  0x000002179bf9c340 WorkerThread "GC Thread#0"                     [id=5252, stack(0x0000002aee100000,0x0000002aee200000) (1024K)]
+  0x000002179bfb1320 ConcurrentGCThread "G1 Main Marker"            [id=22956, stack(0x0000002aee200000,0x0000002aee300000) (1024K)]
+  0x000002179bfb45e0 WorkerThread "G1 Conc#0"                       [id=10444, stack(0x0000002aee300000,0x0000002aee400000) (1024K)]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffaa02fbfba]
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007ffaa0c33a10] Heap_lock - owner thread: 0x0000021799cdb7f0
+
+Heap address: 0x0000000701a00000, size: 4070 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 1.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+ CardTable entry size: 512
+ Card Set container configuration: InlinePtr #cards 4 size 8 Array Of Cards #cards 16 size 48 Howl #buckets 8 coarsen threshold 3686 Howl Bitmap #cards 512 size 80 coarsen threshold 460 Card regions per heap region 1 cards per card region 4096
+
+Heap:
+ garbage-first heap   total reserved 4167680K, committed 0K, used 0K [0x0000000701a00000, 0x0000000800000000)
+  region size 2048K, 0 young (0K), 0 survivors (0K)
+
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffaa06fc3c9]
+GC Heap History (0 events):
+No events
+
+Dll operation events (1 events):
+Event: 0.021 Loaded shared library C:\Users\DELL\Documents\openjdk-23.0.1_windows-x64_bin\jdk-23.0.1\bin\java.dll
+
+Deoptimization events (0 events):
+No events
+
+Classes loaded (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Memory protections (0 events):
+No events
+
+Nmethod flushes (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff63c020000 - 0x00007ff63c02e000 	C:\Users\DELL\Documents\openjdk-23.0.1_windows-x64_bin\jdk-23.0.1\bin\java.exe
+0x00007ffb2d910000 - 0x00007ffb2db08000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffb2b960000 - 0x00007ffb2ba22000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ffb2b380000 - 0x00007ffb2b67e000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ffb27680000 - 0x00007ffb27714000 	C:\Windows\SYSTEM32\apphelp.dll
+0x00007ffb2b280000 - 0x00007ffb2b380000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffaf60f0000 - 0x00007ffaf610b000 	C:\Users\DELL\Documents\openjdk-23.0.1_windows-x64_bin\jdk-23.0.1\bin\VCRUNTIME140.dll
+0x00007ffb12530000 - 0x00007ffb12547000 	C:\Users\DELL\Documents\openjdk-23.0.1_windows-x64_bin\jdk-23.0.1\bin\jli.dll
+0x00007ffb2cec0000 - 0x00007ffb2d05d000 	C:\Windows\System32\USER32.dll
+0x00007ffb2b110000 - 0x00007ffb2b132000 	C:\Windows\System32\win32u.dll
+0x00007ffb2ba90000 - 0x00007ffb2babb000 	C:\Windows\System32\GDI32.dll
+0x00007ffb18fd0000 - 0x00007ffb1926a000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.4355_none_60b8b9eb71f62e16\COMCTL32.dll
+0x00007ffb2b810000 - 0x00007ffb2b927000 	C:\Windows\System32\gdi32full.dll
+0x00007ffb2b070000 - 0x00007ffb2b10d000 	C:\Windows\System32\msvcp_win.dll
+0x00007ffb2d830000 - 0x00007ffb2d8ce000 	C:\Windows\System32\msvcrt.dll
+0x00007ffb2b930000 - 0x00007ffb2b95f000 	C:\Windows\System32\IMM32.DLL
+0x00007ffafc480000 - 0x00007ffafc48c000 	C:\Users\DELL\Documents\openjdk-23.0.1_windows-x64_bin\jdk-23.0.1\bin\vcruntime140_1.dll
+0x00007ffabe690000 - 0x00007ffabe71e000 	C:\Users\DELL\Documents\openjdk-23.0.1_windows-x64_bin\jdk-23.0.1\bin\msvcp140.dll
+0x00007ffa9ffc0000 - 0x00007ffaa0d0f000 	C:\Users\DELL\Documents\openjdk-23.0.1_windows-x64_bin\jdk-23.0.1\bin\server\jvm.dll
+0x00007ffb2cb60000 - 0x00007ffb2cc11000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ffb2bb60000 - 0x00007ffb2bbff000 	C:\Windows\System32\sechost.dll
+0x00007ffb2bea0000 - 0x00007ffb2bfc3000 	C:\Windows\System32\RPCRT4.dll
+0x00007ffb2b680000 - 0x00007ffb2b6a7000 	C:\Windows\System32\bcrypt.dll
+0x00007ffb2bac0000 - 0x00007ffb2bb2b000 	C:\Windows\System32\WS2_32.dll
+0x00007ffb2ad60000 - 0x00007ffb2adab000 	C:\Windows\SYSTEM32\POWRPROF.dll
+0x00007ffb19690000 - 0x00007ffb196b7000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffb23c90000 - 0x00007ffb23c9a000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ffb2ad40000 - 0x00007ffb2ad52000 	C:\Windows\SYSTEM32\UMPDC.dll
+0x00007ffb297d0000 - 0x00007ffb297e2000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007ffafa350000 - 0x00007ffafa35a000 	C:\Users\DELL\Documents\openjdk-23.0.1_windows-x64_bin\jdk-23.0.1\bin\jimage.dll
+0x00007ffb28bc0000 - 0x00007ffb28da4000 	C:\Windows\SYSTEM32\DBGHELP.DLL
+0x00007ffb155e0000 - 0x00007ffb15614000 	C:\Windows\SYSTEM32\dbgcore.DLL
+0x00007ffb2b1f0000 - 0x00007ffb2b272000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ffaf60b0000 - 0x00007ffaf60ce000 	C:\Users\DELL\Documents\openjdk-23.0.1_windows-x64_bin\jdk-23.0.1\bin\java.dll
+0x00007ffb2cc80000 - 0x00007ffb2cdab000 	C:\Windows\System32\ole32.dll
+0x00007ffb2d4d0000 - 0x00007ffb2d823000 	C:\Windows\System32\combase.dll
+0x00007ffb2c120000 - 0x00007ffb2c88d000 	C:\Windows\System32\SHELL32.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Users\DELL\Documents\openjdk-23.0.1_windows-x64_bin\jdk-23.0.1\bin;C:\Windows\SYSTEM32;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.4355_none_60b8b9eb71f62e16;C:\Users\DELL\Documents\openjdk-23.0.1_windows-x64_bin\jdk-23.0.1\bin\server
+
+VM Arguments:
+jvm_args: -Dclassworlds.conf=C:\Users\DELL\.m2\wrapper\dists\apache-maven-3.9.9\977a63e90f436cd6ade95b4c0e10c20c\bin\m2.conf -Dmaven.home=C:\Users\DELL\.m2\wrapper\dists\apache-maven-3.9.9\977a63e90f436cd6ade95b4c0e10c20c -Dlibrary.jansi.path=C:\Users\DELL\.m2\wrapper\dists\apache-maven-3.9.9\977a63e90f436cd6ade95b4c0e10c20c\lib\jansi-native -Dmaven.multiModuleProjectDirectory=C:\Users\DELL\Documents\bar\bar 
+java_command: org.codehaus.plexus.classworlds.launcher.Launcher -DskipTests=true -Dmaven.ext.class.path=C:\Users\DELL\.cursor\extensions\oracle.oracle-java-23.1.0\nbcode\java\maven-nblib\netbeans-eventspy.jar --no-transfer-progress --fail-at-end install
+java_class_path (initial): C:\Users\DELL\.m2\wrapper\dists\apache-maven-3.9.9\977a63e90f436cd6ade95b4c0e10c20c\boot\plexus-classworlds-2.8.0.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 3                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 1                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 4                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 2097152                                   {product} {ergonomic}
+   size_t InitialHeapSize                          = 268435456                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MarkStackSizeMax                         = 536870912                                 {product} {ergonomic}
+   size_t MaxHeapSize                              = 4267704320                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 2097152                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5832704                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122945536                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122880000                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 4267704320                             {manageable} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Environment Variables:
+JAVA_HOME=C:\Users\DELL\Documents\openjdk-23.0.1_windows-x64_bin\jdk-23.0.1
+PATH=C:\Users\DELL\Documents\openjdk-23.0.1_windows-x64_bin\jdk-23.0.1\bin;C:\Hung\SDK\flutter\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\dotnet\;D:\DevTools\Java\apache-maven-3.9.6-bin\apache-maven-3.9.6\bin;C:\Program Files\GitHub CLI\;C:\Program Files\Cloudflare\Cloudflare WARP\;C:\Program Files\Tesseract-OCR;C:\Users\DELL\AppData\Local\Pub\Cache\bin;C:\Program Files\nodejs\;C:\Users\DELL\AppData\Local\Programs\Python\Launcher\;C:\Users\DELL\Documents\openjdk-23.0.1_windows-x64_bin\jdk-23.0.1\bin;C:\Hung\SDK\flutter\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\DELL\AppData\Local\Microsoft\WindowsApps;C:\Users\DELL\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\DELL\AppData\Local\GitHubDesktop\bin;C:\Users\DELL\.cache\lm-studio\bin;C:\Users\DELL\AppData\Roaming\npm;C:\Users\DELL\AppData\Local\Programs\cursor\resources\app\bin
+USERNAME=Hungvo
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 94 Stepping 3, GenuineIntel
+TMP=C:\Users\DELL\AppData\Local\Temp
+TEMP=C:\Users\DELL\AppData\Local\Temp
+
+
+
+
+Periodic native trim disabled
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 10 , 64 bit Build 19041 (10.0.19041.5198)
+OS uptime: 0 days 9:54 hours
+
+CPU: total 4 (initial active 4) (4 cores per cpu, 1 threads per core) family 6 model 94 stepping 3 microcode 0xf0, cx8, cmov, fxsr, mmx, 3dnowpref, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, rtm, adx, fma, vzeroupper, clflush, clflushopt, rdtscp, f16c
+Processor Information for the first 4 processors :
+  Max Mhz: 2601, Current Mhz: 2601, Mhz Limit: 2601
+
+Memory: 4k page, system-wide physical 16275M (241M free)
+TotalPageFile size 32275M (AvailPageFile size 245M)
+current process WorkingSet (physical memory assigned to process): 12M, peak: 12M
+current process commit charge ("private bytes"): 52M, peak: 308M
+
+vm_info: OpenJDK 64-Bit Server VM (23.0.1+11-39) for windows-amd64 JRE (23.0.1+11-39), built on 2024-09-30T07:20:43Z with MS VC++ 17.6 (VS2022)
+
+END.
